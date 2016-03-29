@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angularjs Project</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.min.js"></script>
+
+  <script src="ui-bootstrap-tpls-1.2.5.min.js"></script>
+  <script src="app.js"></script>
+<style type="text/css">
+    *{
+      font: italic bold 12px/30px Georgia, serif;
+    }
+    .error{
+      color: red;
+    }
+    input.ng-invalid.ng-touched {
+      border: 1px solid #DA3637;
+    }
+    input.ng-valid.ng-touched {
+      border: 1px solid #509D12;
+    }
+</style>
+</head>
+<body>
+  <div ng-view>
+  </div>
+</body>
+</html>

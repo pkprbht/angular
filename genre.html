@@ -1,0 +1,22 @@
+<h6 class="text-center"><a href="#/musictrack">go to Music Tracks</a> </h6>
+<h1 class="text-center">Track's Genres</h1>
+<div class="col-sm-6" style="margin: auto; float: none;">
+	
+	<br>
+	
+	<div ng-repeat="track in alltrack">
+	<a href="#/editgenre/{{track.id}}" style="color: rgb(0, 0, 0);">
+		<div class="table-bordered" style="padding: 5px;">{{track.name}}</div>
+	</a>
+	</div>
+
+	<br>
+	<div class="text-center">
+	<a href="#/addgenre"><button class="btn btn-default">Add New Genre</button></a>
+	</div>
+	<br>
+	<br>
+	<br>
+
+</div>
+

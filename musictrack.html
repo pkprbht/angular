@@ -1,0 +1,56 @@
+<style type="text/css">
+	
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;  
+    padding-left: 30px;  
+}
+.right-inner-addon .ii {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.right-inner-addon .iiii {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+</style>
+<h6 class="text-center"><a href="#/genre">go to Track's Genres</a> </h6>
+<h1 class="text-center"> Music Tracks</h1>
+<div class="col-sm-6" style="margin: auto; float: none;">
+	<div class="right-inner-addon">
+        <i class="glyphicon glyphicon-remove-sign ii"></i>
+        <i class="glyphicon glyphicon-search iiii"></i>
+        <input type="search" class="form-control" ng-model="searchquery.title" placeholder="Search Title" ></input>
+    </div>
+	
+	<br>
+	
+	<div ng-repeat="track in alltrack | filter: searchquery | limitTo : limit : begin">
+	<a href="#/editmusictrack/{{track.id}}" style="color: rgb(0, 0, 0);">
+		<div class="table-bordered" style="padding: 5px;">{{track.title}}  
+			[<spam ng-repeat="genre in track.genres">{{genre.name}}<spam ng-hide="$last"> | </spam></spam>] 
+			<spam class="pull-right">
+				<uib-rating ng-model="track.rating" max="5" read-only="true"></uib-rating>
+			</spam>
+		</div>
+	</a>
+	</div>
+
+	<br>
+	<div class="text-center">
+	<a href="#/addmusictrack"><button class="btn btn-default">Add New Track</button></a>
+	</div>
+	<br>
+	<div class="text-center">
+	<button ng-click="begin = 0" class="btn btn-default">Page 1</button><button ng-click="begin = 5" class="btn btn-default">Page 2</button><button ng-click="begin = 10" class="btn btn-default">Page 3</button><spam ng-hide = "begin + 5 > alltrack.length"><button ng-click="begin = begin + 5" class="btn btn-default">Next</button></spam>
+	</div>
+	<br>
+
+</div>
+

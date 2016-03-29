@@ -1,0 +1,39 @@
+<h1 class="text-center"> Edit Genre</h1>
+<div class="col-sm-6" style="margin: auto; float: none;">
+
+
+  <br>
+    <div class="text-center">
+      <a href="#/genre"><button class="btn btn-default">go to Track's Genres</button></a>
+    </div>
+  <br>
+
+
+  <form name="myform"
+    ng-submit="save()"
+    novalidate>
+
+    
+      
+      <h2 class="text-center" ng-show="message" style="color: red">{{ message }}</h2>
+    
+
+    <fieldset>
+      <input class="form-control" type="text" name="name" placeholder="Name"
+      ng-model="track.name" ng-required="true">
+      <p class="error"
+      ng-show="myform.name.$invalid && myform.name.$touched">
+      Name required</p>
+
+      <br>
+    </fieldset>
+
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary"  ng-disabled="myform.$invalid">Edit</button>
+    </div>
+    
+    
+  </form>
+
+</div>

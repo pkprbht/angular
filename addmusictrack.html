@@ -1,0 +1,63 @@
+<h1 class="text-center"> Add New Track</h1>
+<div class="col-sm-6" style="margin: auto; float: none;">
+
+
+  <br>
+    <div class="text-center">
+      <a href="#/musictrack"><button class="btn btn-default">go to Music Tracks</button></a>
+    </div>
+  <br>
+
+
+  <form name="myform"
+    ng-submit="add()"
+    novalidate>
+
+    
+      
+      <h2 class="text-center" ng-show="message" style="color: red">{{ message }}</h2>
+    
+
+    <fieldset>
+      <input class="form-control" type="text" name="title" placeholder="Title"
+      ng-model="track.title" ng-required="true">
+      <p class="error"
+      ng-show="myform.title.$invalid && myform.title.$touched">
+      Title required</p>
+
+      <br>
+
+       <style type="text/css">
+        .star-rating .star {
+          color: #ddd;
+          display: inline-block;
+          cursor: pointer;
+        }
+        .star-rating .star.filled{
+          color: #000;
+        }
+      </style>
+
+      <div pk-rate ng-model="track.rating" ng-init="track.rating = 1" ></div>
+      <br>
+
+      <select name="genre" class="form-control" ng-model="track.genre" ng-required="true" multiple>
+        <option ng-repeat="ge in gernes" value="{{ge.id}}">{{ge.name}}</option>
+      </select>
+      <p class="error"
+      ng-show="myform.genre.$invalid && myform.genre.$touched">
+      Gerne required </p>
+
+      <br>
+
+    </fieldset>
+
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary"  ng-disabled="myform.$invalid">Add</button>
+    </div>
+    
+    
+  </form>
+
+</div>

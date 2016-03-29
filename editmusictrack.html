@@ -1,0 +1,56 @@
+<h1 class="text-center"> Edit Traack</h1>
+<div class="col-sm-6" style="margin: auto; float: none;">
+
+
+  <br>
+    <div class="text-center">
+      <a href="#/musictrack"><button class="btn btn-default">go to Music Tracks</button></a>
+    </div>
+  <br>
+
+
+  <form name="myform"
+    ng-submit="save()"
+    novalidate >
+
+    
+      
+      <h2 class="text-center" ng-show="message" style="color: red">{{ message }}</h2>
+    
+
+    <fieldset>
+      <input class="form-control" type="text" name="title" placeholder="Title"
+      ng-model="track.title" ng-required="true">
+      <p class="error"
+      ng-show="myform.title.$invalid && myform.title.$touched">
+      Title required</p>
+
+      <br>
+
+      <input class="form-control" type="text" name="rating" placeholder="Rating"
+      ng-model="track.rating" ng-required="true" ng-pattern="/^[1-5]\.[0-9]$/">
+      <p class="error"
+      ng-show="myform.rating.$invalid && myform.rating.$touched">
+      Rating required and only number between 1.0 to 5.0</p>
+
+      
+       <br>
+       <select name="genre" class="form-control" ng-model="track.genre" ng-required="true" multiple>
+            <option ng-repeat="ge in gernes" value="{{ge.id}}">{{ge.name}}</option>
+        </select>
+        <p class="error"
+        ng-show="myform.genre.$invalid">
+        Gerne required </p>
+
+        <br>
+    </fieldset>
+
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary"  ng-disabled="myform.$invalid">Edit</button>
+    </div>
+    
+    
+  </form>
+
+</div>
